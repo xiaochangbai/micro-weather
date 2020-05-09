@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: micro-weather-city-server
+
+server:
+  port: 8909
+  servlet:
+    context-path: /micro-weather-city

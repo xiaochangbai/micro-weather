@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: micro-weather-web-server
+
+server:
+  port: 80
+  servlet:
+    context-path: /mww
