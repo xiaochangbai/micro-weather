@@ -6,3 +6,9 @@ server:
   port: 8910
   servlet:
     context-path: /micro-collection-city
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7790/eureka
+

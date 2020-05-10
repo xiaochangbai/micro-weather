@@ -1,6 +1,9 @@
 # micro-weather
 微服务天气系统---Spring Cloud
 
+###版本依赖： SpringBoot2.0.0.M3 ， SpringCloud Finchley.RELEASE
+
+<hr/>
 <table>
   <tr>
     <td>编号</td>

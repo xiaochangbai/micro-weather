@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: micro-weather-eureka-server
+server:
+  port: 7790
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+    register-with-eureka: false
+    fetch-registry: false

@@ -6,3 +6,8 @@ server:
   port: 8911
   servlet:
     context-path: /micro-api-city
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7790/eureka

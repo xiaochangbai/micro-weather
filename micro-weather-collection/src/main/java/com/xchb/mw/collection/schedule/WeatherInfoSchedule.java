@@ -1,6 +1,7 @@
 package com.xchb.mw.collection.schedule;
 
 
+import com.xchb.mw.collection.service.CollectionCityClient;
 import com.xchb.mw.common.dto.SimpleCity;
 import com.xchb.mw.common.dto.SimpleCitys;
 import org.apache.http.HttpEntity;
@@ -38,19 +39,20 @@ public class WeatherInfoSchedule {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
+    @Autowired
+    private CollectionCityClient collectionCityClient;
+
 
     /**
      * 每隔一小时获取最新天气信息，存redis
      * @throws IOException
      */
-    //@Scheduled(cron = "0 0 0/1 * * ?") 每隔一小时进行一次数据采集
-    @Scheduled(cron = "0 0/1 * * * ?")  //测试：每隔一分钟进行一次采集
+    @Scheduled(cron = "0 0 0/1 * * ?") //每隔一小时进行一次数据采集
+    //@Scheduled(cron = "0 0/1 * * * ?")  //测试：每隔一分钟进行一次采集
     public void pullWeatherInfoToCache() throws IOException {
         long start = System.currentTimeMillis();
-        //TODO 从城市服务中调取城市数据
-        List<SimpleCity> data = new ArrayList<>(5);
-        data.add(new SimpleCity("深圳","101280601"));
-        data.add(new SimpleCity("澄海","101280503"));
+        //从城市服务中调取城市数据
+        List<SimpleCity> data = collectionCityClient.list().getData();
         for(SimpleCity simpleCity:data){
             //根据id存
             String key = AppConst.WEATHER_URL+"?citykey="+simpleCity.getId();

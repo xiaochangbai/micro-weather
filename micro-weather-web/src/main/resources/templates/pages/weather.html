@@ -1,10 +1,27 @@
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>天气预报微服务系统</title>
 </head>
 
 <body>
-    <h1 style="text-align: center;color: green;">天气预报微服务系统</h1>
+    <h1 style="text-align: center;color: green;" th:text="${wea.title}"></h1>
+    <h2>城市列表：</h2>
+    <select id="citySelect">
+        <option th:each="city:${wea.citys}" th:text="${city.name}" th:value="${city.id}" th:selected="${city.id eq wea.cityId ?true:false}"></option>
+    </select>
+    <h2>当前城市天气信息：</h2>
+    <span th:text="${wea.weathers}"></span>
+    <hr/>
 
 </body>
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script>
+   $("#citySelect").change(function () {
+       var cityid = $("#citySelect :selected").val();
+       console.log(cityid);
+       window.location.href="/mww/index?cityId="+cityid;
+   })
+</script>
 </html>

@@ -1,8 +1,17 @@
 spring:
   application:
     name: micro-weather-web-server
+  thymeleaf:
+    cache: false
+
 
 server:
   port: 80
   servlet:
     context-path: /mww
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7790/eureka
+

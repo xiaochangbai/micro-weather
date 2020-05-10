@@ -1,5 +1,8 @@
 package com.xchb.mw.web.controller;
 
+import com.xchb.mw.web.service.WebApiClient;
+import com.xchb.mw.web.service.WebCityClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
@@ -17,18 +20,23 @@ import java.io.IOException;
 @Controller
 public class WeatherController {
 
+    @Autowired
+    private WebCityClient webCityClient;
+
+    @Autowired
+    private WebApiClient webApiClient;
 
     @RequestMapping("/index")
-    public ModelAndView index(@RequestParam(value = "cityName",required = false,defaultValue = "长沙") String cityName) throws IOException {
+    public ModelAndView index(@RequestParam(value = "cityId",required = false,defaultValue = "101010200") String cityId) throws IOException {
         Model model = new ExtendedModelMap();
         model.addAttribute("title","Tiany的个人天气系统");
-        model.addAttribute("cityName",cityName);
+        model.addAttribute("cityId",cityId);
 
-        //TODO 从城市服务中获取城市列表
-        model.addAttribute("citys",null);
+        //从城市服务中获取城市列表
+        model.addAttribute("citys",webCityClient.list().getData());
 
-        //TODO 调用天气服务获取，天气信息
-        model.addAttribute("weathers",null);
+        //调用天气服务获取，天气信息
+        model.addAttribute("weathers",webApiClient.findByCityId(cityId));
         ModelAndView modelAndView = new ModelAndView("/pages/weather.html","wea",model);
         return modelAndView;
     }
