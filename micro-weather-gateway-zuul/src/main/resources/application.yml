@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: micro-weather-gateway-zuul
+
+server:
+  port: 8999
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7790/eureka
+
+zuul.routes.city.path: /city/**
+zuul.routes.city.serviceId: micro-weather-city-server
+
+zuul.routes.weather.path: /weather/**
+zuul.routes.weather.serviceId: micro-weather-api-server
+

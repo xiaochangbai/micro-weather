@@ -13,6 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient("micro-weather-city-server")
 public interface CollectionCityClient {
 
-    @GetMapping("/city/list")
+    @GetMapping("/list")
     SimpleCitys list();
 }

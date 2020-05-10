@@ -1,5 +1,6 @@
 package com.xchb.mw.web.service;
 
+import com.xchb.mw.common.dto.SimpleCitys;
 import com.xchb.mw.common.vo.WeatherResultVo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +15,12 @@ import java.io.IOException;
  * @date 2020/5/10
  * @description Good Good Study,Day Day Up.
  */
-@FeignClient("micro-weather-api-server")
-public interface WebApiClient {
+@FeignClient("micro-weather-gateway-zuul")
+public interface WebClient {
 
-    @RequestMapping("/micro-api-city/wear/byid/{cityId}")
-    public WeatherResultVo findByCityId(@PathVariable("cityId") String cityId) throws IOException;
+    @RequestMapping("/weather/byid/{cityId}")
+    WeatherResultVo findByCityId(@PathVariable("cityId") String cityId) throws IOException;
+
+    @RequestMapping("/city/list")
+    SimpleCitys cityList();
 }

@@ -15,7 +15,6 @@ import java.io.IOException;
  * @description Good Good Study,Day Day Up.
  */
 @RestController
-@RequestMapping("/city")
 public class CityController {
 
     @Autowired

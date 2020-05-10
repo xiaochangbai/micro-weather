@@ -41,10 +41,15 @@
     <td>提供用户操作使用的图形化界面</td>
   </tr>
   
-  <tr>
+   <tr>
       <td>6</td>
       <td>服务注册中心 micro-weather-eureka-server</td>
       <td>提供服务的注册于发现</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>api网关 micro-weather-gateway-zuul</td>
+      <td>集中管理接口</td>
     </tr>
   
   

@@ -16,7 +16,6 @@ import java.io.IOException;
  * @description Good Good Study,Day Day Up.
  */
 @RestController
-@RequestMapping("/wear/")
 public class WeatherController {
 
     @Autowired

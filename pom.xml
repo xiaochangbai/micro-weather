@@ -18,6 +18,7 @@
         <module>micro-weather-api</module>
         <module>micro-weather-web</module>
         <module>micro-weather-eureka-server</module>
+        <module>micro-weather-gateway-zuul</module>
     </modules>
 
 

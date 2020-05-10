@@ -47,8 +47,8 @@ public class WeatherInfoSchedule {
      * 每隔一小时获取最新天气信息，存redis
      * @throws IOException
      */
-    @Scheduled(cron = "0 0 0/1 * * ?") //每隔一小时进行一次数据采集
-    //@Scheduled(cron = "0 0/1 * * * ?")  //测试：每隔一分钟进行一次采集
+    //@Scheduled(cron = "0 0 0/1 * * ?") //每隔一小时进行一次数据采集
+    @Scheduled(cron = "0 0/3 * * * ?")  //测试：每隔三分钟进行一次采集
     public void pullWeatherInfoToCache() throws IOException {
         long start = System.currentTimeMillis();
         //从城市服务中调取城市数据

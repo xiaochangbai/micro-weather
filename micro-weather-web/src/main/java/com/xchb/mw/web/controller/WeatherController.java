@@ -1,7 +1,6 @@
 package com.xchb.mw.web.controller;
 
-import com.xchb.mw.web.service.WebApiClient;
-import com.xchb.mw.web.service.WebCityClient;
+import com.xchb.mw.web.service.WebClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ExtendedModelMap;
@@ -21,10 +20,7 @@ import java.io.IOException;
 public class WeatherController {
 
     @Autowired
-    private WebCityClient webCityClient;
-
-    @Autowired
-    private WebApiClient webApiClient;
+    private WebClient webClient;
 
     @RequestMapping("/index")
     public ModelAndView index(@RequestParam(value = "cityId",required = false,defaultValue = "101010200") String cityId) throws IOException {
@@ -33,10 +29,10 @@ public class WeatherController {
         model.addAttribute("cityId",cityId);
 
         //从城市服务中获取城市列表
-        model.addAttribute("citys",webCityClient.list().getData());
+        model.addAttribute("citys",webClient.cityList().getData());
 
         //调用天气服务获取，天气信息
-        model.addAttribute("weathers",webApiClient.findByCityId(cityId));
+        model.addAttribute("weathers",webClient.findByCityId(cityId));
         ModelAndView modelAndView = new ModelAndView("/pages/weather.html","wea",model);
         return modelAndView;
     }
