@@ -19,6 +19,7 @@
         <module>micro-weather-web</module>
         <module>micro-weather-eureka-server</module>
         <module>micro-weather-gateway-zuul</module>
+        <module>micro-weather-configcenter-server</module>
     </modules>
 
 
