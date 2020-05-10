@@ -1,7 +1,7 @@
 # micro-weather
 微服务天气系统---Spring Cloud
 
-###版本依赖： SpringBoot2.0.0.M3 ， SpringCloud Finchley.RELEASE
+版本依赖： SpringBoot2.0.0.M3 ， SpringCloud Finchley.RELEASE
 
 <hr/>
 <table>
@@ -38,8 +38,14 @@
   <tr>
     <td>5</td>
     <td>天气预报系统 micro-weather-web</td>
-    <td>提供用户使用图形化界面</td>
+    <td>提供用户操作使用的图形化界面</td>
   </tr>
+  
+  <tr>
+      <td>6</td>
+      <td>服务注册中心 micro-weather-eureka-server</td>
+      <td>提供服务的注册于发现</td>
+    </tr>
   
   
 </table>
