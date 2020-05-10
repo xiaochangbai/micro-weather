@@ -2,6 +2,7 @@ package com.xchb.mw.web.controller;
 
 import com.xchb.mw.web.service.WebClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
@@ -22,12 +23,15 @@ public class WeatherController {
     @Autowired
     private WebClient webClient;
 
+    @Value("${author}")
+    private String author;
+
     @RequestMapping("/index")
     public ModelAndView index(@RequestParam(value = "cityId",required = false,defaultValue = "101010200") String cityId) throws IOException {
         Model model = new ExtendedModelMap();
         model.addAttribute("title","Tiany的个人天气系统");
         model.addAttribute("cityId",cityId);
-
+        System.out.println("作者："+author);
         //从城市服务中获取城市列表
         model.addAttribute("citys",webClient.cityList().getData());
 

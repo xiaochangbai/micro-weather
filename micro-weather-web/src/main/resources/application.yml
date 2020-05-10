@@ -3,6 +3,10 @@ spring:
     name: micro-weather-web-server
   thymeleaf:
     cache: false
+  cloud:
+    config:
+      profile: dev
+      uri: http://localhost:8917/
 
 
 server:
@@ -14,4 +18,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:7790/eureka
+
+
 
