@@ -7,6 +7,9 @@ spring:
     config:
       profile: dev
       uri: http://localhost:8917/
+      discovery:
+        enabled: true
+        service-id: micro-weather-configcenter-server
 
 
 server:

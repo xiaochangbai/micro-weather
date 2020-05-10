@@ -51,6 +51,11 @@
       <td>api网关 micro-weather-gateway-zuul</td>
       <td>集中管理接口</td>
     </tr>
+     <tr>
+          <td>8</td>
+          <td>服务配置中心服务端 micro-weather-configcenter-server</td>
+          <td>中心化管理配置</td>
+        </tr>
   
   
 </table>
