@@ -4,6 +4,8 @@
 版本依赖： SpringBoot2.0.0.M3 ， SpringCloud Finchley.RELEASE
 
 <hr/>
+<img src="imgs/微服务天气系统项目结构图.png">
+<hr/>
 <table>
   <tr>
     <td>编号</td>
@@ -56,6 +58,5 @@
           <td>服务配置中心服务端 micro-weather-configcenter-server</td>
           <td>中心化管理配置</td>
         </tr>
-  
   
 </table>

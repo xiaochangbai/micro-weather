@@ -12,7 +12,8 @@
         <option th:each="city:${wea.citys}" th:text="${city.name}" th:value="${city.id}" th:selected="${city.id eq wea.cityId ?true:false}"></option>
     </select>
     <h2>当前城市天气信息：</h2>
-    <span th:text="${wea.weathers}"></span>
+        <div th:if="${wea.weathers.data}!=null"> <span th:text="${wea.weathers}"></span></div>
+        <div th:if="${wea.weathers.data}==null"><span style="color: red;">天气服务不可用</span></div>
     <hr/>
 
 </body>

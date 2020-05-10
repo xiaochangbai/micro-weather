@@ -15,11 +15,11 @@ import java.io.IOException;
  * @date 2020/5/10
  * @description Good Good Study,Day Day Up.
  */
-@FeignClient("micro-weather-gateway-zuul")
+@FeignClient(name = "micro-weather-gateway-zuul",fallback = WebClientFallback.class)
 public interface WebClient {
 
     @RequestMapping("/weather/byid/{cityId}")
-    WeatherResultVo findByCityId(@PathVariable("cityId") String cityId) throws IOException;
+    WeatherResultVo findByCityId(@PathVariable("cityId") String cityId);
 
     @RequestMapping("/city/list")
     SimpleCitys cityList();

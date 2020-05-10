@@ -5,6 +5,9 @@ spring:
 server:
   port: 8910
 
+feign.client.config.feignName.connectTimeout: 5000    #连接超时时间
+feign.client.config.feignName.readTimeout: 5000       #读取超时时间
+
 eureka:
   client:
     service-url:
